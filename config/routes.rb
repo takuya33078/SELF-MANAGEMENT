@@ -1,0 +1,10 @@
+Rails.application.routes.draw do
+  devise_for :customers
+  root to: 'homes#top'
+  get 'about' => 'homes#about'
+  get '/customers/my_page' => 'customers#show'
+  resources :customers,only:[:show, :edit, :unsubcribe, :update, :withdraw]
+  resources :meals,only:[:index, :new, :create, :edit, :update, :destroy]
+  resources :weights,only:[:index, :edit, :create, :update, :destroy]
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end

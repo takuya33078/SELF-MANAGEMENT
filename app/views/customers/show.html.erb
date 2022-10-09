@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+            <h10 style="background-color: #d3d3d3">マイページ</h10>
+        </div> 
+            <div class="mx-auto col-11 col-sm-10">
+                <strong class="information-link">登録情報</strong>
+                    <%= link_to " 編集する", edit_customer_path(:id), class: "btn btn-success" %>
+                        <table class="mx-auto  col-lg-8 col-xl-6 width: auto;table table-bordered table-condensed">
+                            <tr>
+                             <td class="col-xs-2">氏名</td>
+                             <td><%= current_customer.name %></td>
+                            </tr>
+                        
+                            <tr>
+                             <td class="col-xs-2">メールアドレス</td>
+                             <td><%= current_customer.email %></td>
+                            </tr>
+                            
+                            <tr>
+                             <td class="col-xs-2">目標の体重</td>
+                             <td><%= current_customer.goal_weight %></td>
+                            </tr>
+                        </table>
+
+            </div>
+      
+    </div>
+    
+</div>

@@ -1,0 +1,39 @@
+<h2>新規会員登録</h2>
+
+<%= form_with model: @customer, url: customer_registration_path do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :name, "名前" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+
+    </div><br>
+    
+    <div class="field">
+      <%= f.label :email, "メールアドレス"  %><br />        
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div><br>
+
+  <div class="field">
+    <%= f.label :password, "パスワード（６文字以上）"  %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "パスワード（確認用）"  %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+  
+      <div class="field">
+      <%= f.label :name, "目標の体重は？" %><br />
+      <%= f.text_field :goal_weight, autofocus: true, autocomplete: "goal_weight" %>kg
+
+    </div><br>
+
+  <div class="actions">
+    <%= f.submit "新規登録", class: "btn btn-success btn-lg center-block" %>
+  </div>
+<% end %>
