@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h10 style="background-color: #d3d3d3">
+              体重登録・管理
+            </h10>
+                <div class="col">
+                    <%= current_customer.name %>さんの目標体重は<%= current_customer.goal_weight %>kgです。
+                </div>
+          
+    
+            <div class="col-md-4">
+                <strong>体重を登録する</strong>
+    
+                    <%= form_with model: @weight, url: weights_path do |f| %>
+                        <div class="form-group">
+                            <%= f.text_field :current_weight, class: "form-control" %>kg<br>        
+                            <%= f.submit "新規登録", class: "btn btn-success mt-3 mx-auto" %>
+                        </div>
+                    <% end %>
+            </div>
+        </div>
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr>
+                      <th>過去の体重表</th>
+                      <th>計測した体重</th>
+                      <th>目標体重からの差</th>
+                      <th>編集</th>
+                    </tr>
+                </thead>
+        
+                    <tbody>
+                        <% @weights.reverse_each do |weight| %>
+                            <tr>
+                                <td><%= weight.created_at.strftime('%Y/%m/%d') %></td>
+                                <td><%= weight.current_weight %>kg</td>
+                                <td>目標体重まであと<%= (weight.current_weight - current_customer.goal_weight) %>kg</td>
+                                <td><%= link_to "編集する", edit_weight_path(:id), class: "btn btn-success btn-sm" %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+            </table>
+    </div>
+</div>
+  

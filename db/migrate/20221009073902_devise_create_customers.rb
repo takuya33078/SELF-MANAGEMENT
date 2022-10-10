@@ -33,8 +33,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string :name
-      t.string :goal_weight
-      t.string :current_weight
+      t.integer :goal_weight
+      t.integer :current_weight
       t.timestamps null: false
     end
 

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h10 style="background-color: #d3d3d3">
+                登録した体重を編集する
+            </h10>
+                <%= form_with model: @weight, url: weight_path do |f| %>
+                    <div class="form-group">
+                        <%= f.text_field :current_weight %>kg<br>        
+                        <%= f.submit "変更を保存", class: "btn btn-success mt-3 mx-auto" %>
+                    </div>
+                <% end %>
+        </div>
+    </div>
+</div>
