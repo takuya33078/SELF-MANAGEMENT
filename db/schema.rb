@@ -33,8 +33,6 @@ ActiveRecord::Schema.define(version: 2022_10_10_080047) do
   end
 
   create_table "weights", force: :cascade do |t|
-    t.string "name"
-    t.integer "goal_weight"
     t.integer "current_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

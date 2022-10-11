@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about'
   get '/customers/my_page' => 'customers#show'
+  get '/customers/unsubcribe' => 'customers#unsubcribe'
+  patch '/customers/withdrawal' => 'customers#withdrawal'
   resources :customers,only:[:show, :edit, :unsubcribe, :update, :withdraw]
   resources :meals,only:[:index, :new, :create, :edit, :update, :destroy]
   resources :weights,only:[:index, :edit, :create, :update, :destroy]
