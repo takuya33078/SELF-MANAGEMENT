@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_10_10_080047) do
     t.string "name"
     t.integer "goal_weight"
     t.integer "current_weight"
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true

@@ -1,1 +1,21 @@
-registrations
+<div class="container">
+   <div class="text-center">
+    <h2><strong>本当に退会しますか？</strong></h2>
+    <div class="messages">
+        <h10>退会すると、会員登録した情報が全て削除されます。<br>
+        退会する場合は、「退会する」をクリックしてください。
+        </h10>
+    </div>
+    <p>
+     <%= link_to edit_customer_path(@customer), class: " btn btn-primary active col-sm-3", style: "margin: 10px;" do %>
+     退会しない
+     <% end %>
+    </p>
+    <p>
+     <%= link_to customers_withdrawal_path(@customer),method: :patch, class: " btn btn-danger active col-sm-3", style: "margin: 10px;" do %>
+     退会する
+     <% end %>
+    </p>
+   </div>
+
+</div>

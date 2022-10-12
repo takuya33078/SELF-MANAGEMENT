@@ -35,6 +35,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :goal_weight
       t.integer :current_weight
+      t.boolean "is_deleted", default: false
       t.timestamps null: false
     end
 
