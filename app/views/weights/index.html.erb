@@ -35,7 +35,7 @@
                             <tr>
                                 <td><%= weight.created_at.strftime('%Y/%m/%d') %></td>
                                 <td><%= weight.current_weight %>kg</td>
-                                <td>目標体重まであと<%= (weight.current_weight - current_customer.goal_weight) %>kg</td>
+                                <td><%= (weight.current_weight - current_customer.goal_weight) %>kg</td>
                                 <td><%= link_to "編集する", edit_weight_path(weight), class: "btn btn-success btn-sm" %></td>
                             </tr>
                         <% end %>

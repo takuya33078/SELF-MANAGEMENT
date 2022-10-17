@@ -2,6 +2,8 @@ class WeightsController < ApplicationController
   def index
     @weight = Weight.new
     @weights = Weight.all
+    logger.debug"---------------------------------------------------------------"
+    logger.debug(@weights.inspect)
   end
   
   def create

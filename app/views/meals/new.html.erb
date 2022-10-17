@@ -1,2 +1,32 @@
-<h1>Meals#new</h1>
-<p>Find me in app/views/meals/new.html.erb</p>
+<div class="container">
+    <div class="row">
+        <h10 style="background-color: #d3d3d3">食事新規登録</h10>
+    </div>
+
+        <div class="row">
+            <% if flash[:meal_created_error] %>
+                <span class="text-danger"><%= flash[:meal_created_error] %></span>
+            <% end %>
+        </div>
+
+            <%= form_with model: @meal, url: meals_path do |f| %>
+                <div class="col">
+                    <div class="form-group row">
+                        <%= f.label :料理名, class: "col-sm-2" %>
+                        <%= f.text_field :dish_name, class: "form-control col-sm-4" %>
+                    </div>
+                    
+                    <div class="col">
+                        <%= f.label :商品画像, class: "col-sm-2" %>
+                        <%= f.attachment_field :image, class: "col-sm-6" %>
+                    </div>
+                
+                    <div class="col-sm-2 mt-auto ml-5">
+                        <%= f.submit :新規登録, class: "btn btn-success" %>
+                    </div>
+            
+                </div>
+            
+            <% end %>
+
+</div>
