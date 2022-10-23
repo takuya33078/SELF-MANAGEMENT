@@ -30,12 +30,15 @@ ActiveRecord::Schema.define(version: 2022_10_10_080047) do
 
   create_table "meals", force: :cascade do |t|
     t.string "image_id"
+    t.integer "customer_id"
     t.string "dish_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "weights", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "weight_id"
     t.integer "current_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
