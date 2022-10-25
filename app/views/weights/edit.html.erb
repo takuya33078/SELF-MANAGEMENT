@@ -4,7 +4,7 @@
             <h10 style="background-color: #d3d3d3">
                 登録した体重を編集する
             </h10>
-                <%= form_with model: @weight, url: weight_path(:id), local: true , method: :patch do |f| %>
+                <%= form_with model: @weight, url: weight_path(@weight.id), local: true , method: :patch do |f| %>
                     <div class="form-group">
                         <%= f.text_field :current_weight %>kg<br>
                         <%#= f.hidden_field :id, :value => weight.id %>

@@ -16,14 +16,14 @@
                         <%= f.text_field :dish_name, class: "form-control col-sm-4" %>
                     </div>
                     
-                    <div class="col">
-                        <%= f.label :商品画像, class: "col-sm-2" %>
-                        <%= f.attachment_field :image, class: "col-sm-6" %>
-                    </div>
+                        <div class="col">
+                            <%= f.label :商品画像, class: "col-sm-2" %>
+                            <%= f.attachment_field :image %>
+                        </div>
                 
-                    <div class="col-sm-2 mt-auto ml-5">
-                        <%= f.submit :新規登録, class: "btn btn-success" %>
-                    </div>
+                            <div class="col-sm-2 mt-auto ml-5">
+                                <%= f.submit :新規登録, class: "btn btn-success" %>
+                            </div>
             
                 </div>
             
