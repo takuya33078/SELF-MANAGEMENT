@@ -24,31 +24,29 @@
 }
 
 body {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  height: 50px;
-  background:#f7deb7;
-}
 
-.container {
-  position: relative;
+  height: 5px;
+  background: #e1fee3;
 }
 
 .top {
   font-weight: bold;
-  background: #f39c12;
+  background: #3CB371;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 10px;
   color: #fff;
   float: left;
   text-align: center;
-  cursor: pointer;
-  transform: skew(-20deg);
 }
 
 .top h1 {
-  transform: skew(20deg);
   font-size: 50px;
   
+}
+
+.top span {
+  color: #b8d200;
 }
 
 .top h1:hover {
@@ -59,56 +57,27 @@ body {
     
 
 .navigation {
-  position: relative;
-  top: 0px;
-  height: 200px;
-  width: 40px;
-  background:#f39c12;
-  text-decoration: none;
-  color: #000000;
-  box-shadow: 8px 8px 0 #4a4a4a;
-  border-radius: 5px;
-  border: solid;
-  border: 1px solid;
-  overflow-x: hidden;
-  transition: all 0.7s;
 }
 
 
 .navigation:hover {
-  width: 170px;
   
 }
 
 .navigation ul {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  color: #000000;
-  padding-top: 20px;
-  padding-left: 10px;
 }
 
 .navigation ul li {
   list-style: none;
-  text-decoration: none;
-  display: block;
-  position: relative;
-  width: 100%;
-  border-radius: 15px;
-  text-decoration: none;
-  white-space: nowrap;
+  display: inline-block;
+  padding: 1px;
+  font-weight: bold;
 }
 
 .navigation ul li:hover {
-  text-decoration: none;
+  
 }
 
 .navigation ul li.active {
-  background-color: #fafafa;
-  border: solid;
-  border: 1px solid;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+
 }

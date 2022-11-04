@@ -12,10 +12,8 @@
        <body>
           <div class="container">
               <div class="top">
-                  <h1>
-                      <%= link_to root_path do %>
-                          SELF MANAGEMENT
-                      <% end %>                        
+                  <h1 class= "application-name">
+                      SELF <span>MANAGEMENT</span>
                   </h1>
                 
                   
@@ -24,7 +22,7 @@
 
                     
                   <div class="font-family">
-                      ようこそ、<%= current_customer.name  %>さん！ 
+                      <%= current_customer.name %>さんでログイン中
                   </div>
           </div>
               <div class="navigation">
