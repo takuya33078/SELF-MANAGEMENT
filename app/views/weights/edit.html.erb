@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-4">
             <h10 style="background-color: #3CB371">
                 登録した体重を編集する
-            </h10>
+            </h10><br><br>
                 <%= form_with model: @weight, url: weight_path(@weight.id), local: true , method: :patch do |f| %>
                     <div class="form-group">
                         <%= f.text_field :current_weight %>kg<br>

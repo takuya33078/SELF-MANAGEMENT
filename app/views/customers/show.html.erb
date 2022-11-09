@@ -4,24 +4,23 @@
             <h10 style="background-color: #3CB371">マイページ</h10>
         </div> 
             <div class="mx-auto col-11 col-sm-10 col-lg-8">
-                    <%= link_to " 編集する", edit_customer_path(:id), class: "btn btn-success" %>
-                        <table class="mx-auto  col-lg-8 col-xl-6 width: auto;table table-bordered table-condensed">
-                            <tr>
-                             <td class="col-xs-2">氏名</td>
-                             <td><%= current_customer.name %></td>
-                            </tr>
-                        
-                            <tr>
-                             <td class="col-xs-2">メールアドレス</td>
-                             <td><%= current_customer.email %></td>
-                            </tr>
-                            
-                            <tr>
-                             <td class="col-xs-2">目標の体重</td>
-                             <td><%= current_customer.goal_weight %>kg</td>
-                            </tr>
-                        </table>
-
+                <table class="mx-auto  col-lg-8 col-xl-6 width: auto;table table-bordered table-condensed">
+                    <tr>
+                        <td class="col-xs-2">氏名</td>
+                        <td><%= current_customer.name %></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="col-xs-2">メールアドレス</td>
+                        <td><%= current_customer.email %></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-xs-2">目標の体重</td>
+                        <td><%= current_customer.goal_weight %>kg</td>
+                    </tr>
+                </table>
+                    <%= link_to " 編集する", edit_customer_path(:id), class: "btn btn-secondary text-right ml-auto" %>
             </div>
       
     </div>

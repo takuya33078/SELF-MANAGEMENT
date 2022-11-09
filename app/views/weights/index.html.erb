@@ -1,25 +1,23 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <h10 style="background-color: #3CB371">
               体重登録・管理
             </h10>
-                <div class="col">
-                    <%= current_customer.name %>さんの目標体重は<%= current_customer.goal_weight %>kgです。
+                <div class="customer-goal-weight">
+                    <%= current_customer.name %>さんの目標体重は<strong><%= current_customer.goal_weight %>kg</strong>です
                 </div>
-          
-    
-            <div class="col-md-4">
+        </div>
+            <div class="col-md-2">
                 <strong>体重を登録する</strong>
-    
-                    <%= form_with model: @weight, url: weights_path do |f| %>
-                        <div class="form-group">
+                    <div class="form-group">
+                        <%= form_with model: @weight, url: weights_path do |f| %>
                             <%= f.text_field :current_weight, class: "form-control" %>kg<br>        
                             <%= f.submit "新しく登録する", class: "btn btn-success mt-3 mx-auto" %>
-                        </div>
-                    <% end %>
+                        <% end %>
+                    </div>
             </div>
-        </div>
+        
             <table class="table table-hover text-center">
                 <thead>
                     <tr>

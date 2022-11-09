@@ -25,23 +25,23 @@
 
 body {
 
-  height: 5px;
+  height: 20px;
   background: #e1fee3;
 }
 
-.top {
+.top-container {
   font-weight: bold;
   background: #3CB371;
-  border-radius: 30px;
-  padding: 20px;
-  margin: 10px;
-  float: left;
   text-align: center;
 }
 
 .top h1 {
   font-size: 50px;
-  
+  font-family: 'Arial Black',sans-serif;
+}
+.top h2 {
+  font-size: 20px;
+  font-family: 'Arial Black',sans-serif;
 }
 
 .top span {
@@ -52,6 +52,7 @@ body {
     
 
 .navigation {
+  background: #e1fee3;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -65,11 +66,13 @@ body {
   text-decoration: none;
   list-style: none;
   padding: 2px;
+  margin: 2px;
 }
 
-
-
-.container {
-  left: 30px;
-  height: 80px;
-}
+ .login span{
+     background : linear-gradient(transparent 50%, #ffa64d 65%); 
+ }
+ 
+ .customer-goal-weight strong {
+   background : linear-gradient(transparent 50%, #ffa64d 65%);
+ }

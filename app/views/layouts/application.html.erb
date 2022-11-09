@@ -10,83 +10,74 @@
     </head>
 
        <body>
-          <div class="container">
+          <div class="top-container">
               <div class="top">
                   <h1 class= "application-name">
                       SELF <span>MANAGEMENT</span>
                   </h1>
-                
-                  
-                
+                  <h2 class="application-kana">
+                    ーセルフ<span>マネジメント</span>ー
+                  </h2>
               </div>
-
-                    
-
-          </div>
-              <div class="navigation">
-          
-                  <header>
-                    
-    
+                  <div class="navigation">
+                      <header>
                           <ul class="nav links">
             
-                            <% if customer_signed_in? %>
-                            
-                              <li class="list active">
-                              <%= link_to customers_my_page_path, class: "btn btn-success" do %>
-                              <span class="title">マイページ</span>
-                              <% end %>
-                              </li>
+                              <% if customer_signed_in? %>
                               
-                              <li class="list active">
-                              <%= link_to weights_path, class: "btn btn-success" do %>
-                              <span class="title">体重管理</span>
+                                  <li class="list active">
+                                      <%= link_to customers_my_page_path, class: "btn btn-outline-secondary" do %>
+                                      <span class="title">マイページ</span>
+                                      <% end %>
+                                  </li>
+                                  
+                                  <li class="list active">
+                                      <%= link_to weights_path, class: "btn btn-outline-success" do %>
+                                      <span class="title">体重管理</span>
+                                      <% end %>
+                                  </li>
+                                  
+                                  <li class="list active">
+                                      <%= link_to meals_path, class: "btn btn-outline-info" do %>
+                                      <span class="title">食事管理</span>
+                                      <% end %>
+                                  </li>
+                                  
+                                  <li class="list active">
+                                      <%= link_to destroy_customer_session_path, method: :delete, class: "btn btn-outline-danger" do %>
+                                      <span class="title">ログアウト</span>
+                                      <% end %>
+                                  </li>
+                                  
+                              <% else %>
+                  
+                                  <li>
+                                      <%= link_to about_path, class: "fas btn btn-light" do %>
+                                      セルマネについて
+                                      <% end %>
+                                  </li>
+                  
+            
+                  
+                                  <li>
+                                      <%= link_to new_customer_registration_path, class: "fas btn btn-light" do %>
+                                      新規登録
+                                      <% end %>
+                                  </li>
+                  
+                                  <li>
+                                      <%= link_to new_customer_session_path, class: "fas btn btn-light" do %>
+                                      ログイン
+                                      <% end %>
+                                  </li>
                               <% end %>
-                              </li>
-                              
-                              <li class="list active">
-                              <%= link_to meals_path, class: "btn btn-success" do %>
-                              <span class="title">食事管理</span>
-                              <% end %>
-                              </li>
-                              
-                              <li class="list active">
-                              <%= link_to destroy_customer_session_path, method: :delete, class: "btn btn-danger" do %>
-                              <span class="title">ログアウト</span>
-                              <% end %>
-                              </li>
-                              
-                              <li class="font-family">
-                              <%= current_customer.name %>さんでログイン中
-                              </li>
-        
-                             <% else %>
-              
-                              <li>
-                              <%= link_to about_path, class: "fas btn btn-light" do %>
-                              セルマネについて
-                              <% end %>
-                              </li>
-              
-        
-              
-                              <li>
-                                <%= link_to new_customer_registration_path, class: "fas btn btn-light" do %>
-                                新規登録
-                                <% end %>
-                              </li>
-              
-                              <li>
-                                <%= link_to new_customer_session_path, class: "fas btn btn-light" do %>
-                                ログイン
-                                <% end %>
-                              </li>
-                            <% end %>
                           </ul>
-                      
-                    
-                  </header>
-              </div>
+                                  <div class="login">
+                                      <span><%= current_customer.name %>さんでログイン中</span>
+                                  </div>
+                      </header>
+                  </div>
+          </div>
               <main id="content">
                 <%= yield %>
               </main>
