@@ -5,6 +5,7 @@
               体重登録・管理
             </h10>
                 <div class="customer-goal-weight">
+                    体重の登録・管理ができます。<br>
                     <%= current_customer.name %>さんの目標体重は<strong><%= current_customer.goal_weight %>kg</strong>です
                 </div>
         </div>
@@ -39,6 +40,7 @@
                         <% end %>
                     </tbody>
             </table>
+            <%= paginate @weights %>
     </div>
 </div>
   

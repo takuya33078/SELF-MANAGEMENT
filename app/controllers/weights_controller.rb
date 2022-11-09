@@ -4,7 +4,7 @@ class WeightsController < ApplicationController
   def index
     #@weight = Weight.new(weight_params)
     #@weights = Weight.where(id: params[:id])
-    @weights = Weight.all
+    @weights = Weight.page(params[:page])
     #logger.debug"---------------------------------------------------------------"
     #logger.debug(@weights.inspect)
   end

@@ -76,3 +76,16 @@ body {
  .customer-goal-weight strong {
    background : linear-gradient(transparent 50%, #ffa64d 65%);
  }
+ 
+ .nav pagination {
+   justify-content: center;
+}
+
+.container-top {
+　　position: absolute;          /* 位置指定 */
+   padding: 20px;               /* 余白指定 */
+                   /* 位置指定 */
+   margin:  auto;               /* 中央寄せ */
+   width:  700px;               /* 幅指定 */
+   height: 80px;                /* 高さ指定 */
+}
