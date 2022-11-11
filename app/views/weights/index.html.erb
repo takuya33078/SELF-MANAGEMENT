@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h10 style="background-color: #3CB371">
-              体重登録・管理
+                体重登録・管理
             </h10>
                 <div class="customer-goal-weight">
                     体重の登録・管理ができます。<br>
@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <%= form_with model: @weight, url: weights_path do |f| %>
                             <%= f.text_field :current_weight, class: "form-control" %>kg<br>        
-                            <%= f.submit "新しく登録する", class: "btn btn-success mt-3 mx-auto" %>
+                            <%= f.submit "新規登録", class: "btn btn-success mt-3 mx-auto" %>
                         <% end %>
                     </div>
             </div>
@@ -35,12 +35,15 @@
                                 <td><%= weight.created_at.strftime('%Y/%m/%d') %></td>
                                 <td><%= weight.current_weight %>kg</td>
                                 <td><%= (weight.current_weight - current_customer.goal_weight) %>kg</td>
-                                <td><%= link_to "編集する", edit_weight_path(weight), class: "btn btn-success btn-sm" %></td>
+                                <td><%= link_to "編集", edit_weight_path(weight), class: "btn btn-success btn-sm" %></td>
                             </tr>
                         <% end %>
                     </tbody>
             </table>
-            <%= paginate @weights %>
     </div>
+    <div class="page">
+      <%= paginate @weights %>  
+    </div>
+    
 </div>
   

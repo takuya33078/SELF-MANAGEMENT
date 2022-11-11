@@ -76,16 +76,39 @@ body {
  .customer-goal-weight strong {
    background : linear-gradient(transparent 50%, #ffa64d 65%);
  }
- 
- .nav pagination {
-   justify-content: center;
-}
 
 .container-top {
-　　position: absolute;          /* 位置指定 */
-   padding: 20px;               /* 余白指定 */
-                   /* 位置指定 */
-   margin:  auto;               /* 中央寄せ */
-   width:  700px;               /* 幅指定 */
-   height: 80px;                /* 高さ指定 */
+   padding: 20px;
+   margin:  auto;
+   width:  700px;
+   height: 80px;
+}
+
+.page {
+  width: 730px;
+  margin-left: auto;
+  margin-right: auto;
+  .pagination {
+    display: block;
+
+  }
+} 
+
+
+
+.pagination>li>a {
+  text-align: center;
+  border: none;     /*枠線をなくす*/
+  color: red;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
 }
