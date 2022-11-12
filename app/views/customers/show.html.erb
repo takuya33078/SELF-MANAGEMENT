@@ -7,21 +7,22 @@
                 ユーザー情報の編集ができます。<br>目標体重もこちらから変更できます。
             </div>
                 <div class="mx-auto col-11 col-sm-10 col-lg-8">
-                    <table class="mx-auto  col-lg-8 col-xl-6 width: auto;table table-bordered table table-sm">
-                        <tr>
-                            <td class="col-xs-2">氏名</td>
-                            <td><%= current_customer.name %></td>
-                        </tr>
-                    
-                        <tr>
-                            <td class="col-xs-2">メールアドレス</td>
-                            <td><%= current_customer.email %></td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="col-xs-2">目標の体重</td>
-                            <td><%= current_customer.goal_weight %>kg</td>
-                        </tr>
+                    <table class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                              <th>氏名</th>
+                              <th>メールアドレス</th>
+                              <th>目標の体重</th>
+                            </tr>
+                        </thead>
+                
+                            <tbody>
+                                    <tr>
+                                        <td><%= current_customer.name %></td>
+                                        <td><%= current_customer.email %></td>
+                                        <td><%= current_customer.goal_weight %>kg</td>
+                                    </tr>
+                            </tbody>
                     </table>
                         <%= link_to " 編集", edit_customer_path(:id), class: "btn btn-secondary text-right ml-auto" %>
                 </div>

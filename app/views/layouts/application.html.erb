@@ -49,10 +49,14 @@
                                       <% end %>
                                   </li>
                                   
+                                　<div class="login">
+                                      <span><%= current_customer.name %>さんでログイン中</span>
+                                  </div>
+                                  
                               <% else %>
                   
                                   <li>
-                                      <%= link_to about_path, class: "fas btn btn-light" do %>
+                                      <%= link_to about_path, class: "btn btn-outline-warning" do %>
                                       セルマネについて
                                       <% end %>
                                   </li>
@@ -60,21 +64,19 @@
             
                   
                                   <li>
-                                      <%= link_to new_customer_registration_path, class: "fas btn btn-light" do %>
+                                      <%= link_to new_customer_registration_path, class: "btn btn-outline-dark" do %>
                                       新規登録
                                       <% end %>
                                   </li>
                   
                                   <li>
-                                      <%= link_to new_customer_session_path, class: "fas btn btn-light" do %>
+                                      <%= link_to new_customer_session_path, class: "btn btn-outline-primary" do %>
                                       ログイン
                                       <% end %>
                                   </li>
                               <% end %>
                           </ul>
-                                  <div class="login">
-                                      <span><%= current_customer.name %>さんでログイン中</span>
-                                  </div>
+
                       </header>
                   </div>
           </div>

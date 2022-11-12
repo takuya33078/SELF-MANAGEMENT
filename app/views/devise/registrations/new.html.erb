@@ -15,9 +15,9 @@
     </div><br>
 
   <div class="field">
-    <%= f.label :password, "パスワード（６文字以上）"  %>
+    <%= f.label :password, "パスワード（6文字以上）"  %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em><%= @minimum_password_length %></em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -34,6 +34,6 @@
     </div><br>
 
   <div class="actions">
-    <%= f.submit "新規登録", class: "btn btn-success btn-lg center-block" %>
+    <%= f.submit "新規登録", class: "btn btn-dark btn-lg center-block" %>
   </div>
 <% end %>

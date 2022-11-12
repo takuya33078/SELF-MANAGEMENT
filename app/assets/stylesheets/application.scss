@@ -84,31 +84,37 @@ body {
    height: 80px;
 }
 
-.page {
-  width: 730px;
-  margin-left: auto;
-  margin-right: auto;
-  .pagination {
-    display: block;
+.table thead th {
+  background: #ffa64d;
+  border: 1px solid #D3D3D3;
+}
 
-  }
-} 
+.table tbody tr td {
+  background: #FCFAF2;
+  border: 1px solid #D3D3D3;
+}
 
-
+.pagination {
+  border: 1px solid #333;
+  padding: 8px;
+}
 
 .pagination>li>a {
-  text-align: center;
-  border: none;     /*枠線をなくす*/
-  color: red;   /*文字の色を変える*/
+  color: black;
+  margin: 10px;
+
 }
 
-/* 表示しているページ番号のデザイン */
 .pagination>.active>a {     
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+  background: #86ed5a;
+  border-radius: 20px;
+  width: 50%;
+  padding: 10px;
+  margin: 10px;
+  list-style: none;
 }
 
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {        
-  border-radius: 15px;    /*角を丸くする*/
+.pagination>li>a:hover { 
+  background: #58b85e;
+  border-radius: 50px;
 }
