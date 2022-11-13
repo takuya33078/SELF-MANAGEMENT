@@ -1,30 +1,36 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <h4 style="width: 100px;background-color: #d3d3d3">ログイン</h4>
-                <br>
-                    <h10 style="width: 100px;background-color: #d3d3d3">会員の方はこちらからログイン</h10>
-                        <br>
-                        <br>
-                            <%= form_with model: @customer, url: customer_session_path, local: true  do |f| %>
-                                <div class="field">
-                                  <%= f.label :email, "メールアドレス"  %>    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                                </div><br><br>
-      
-                                    <div class="field">
-                                      <%= f.label :password, "パスワード"  %>              
-                                      <%= f.password_field :password, autocomplete: "current-password" %>
-                                    </div><br><br>
-      
-                                        <div class="actions">
-                                          <%= f.submit "ログイン", class: "btn btn-primary btn-lg center-block" %>
-                                        </div>
-                            <% end %>
-                                            <br>
-                                                <h10 style="width: 100px;background-color: #d3d3d3; text-align: left">登録がお済みでない方</h10>
-                                                    <p><%= link_to "こちら", new_customer_registration_path %>から新規登録をしてください</p><br>
+        <h2 style="background-color: #3CB371">
+            ログイン
+        </h2>
+        <div class="col-12">
+            <h10 style="width: 330px">会員の方はこちらからログイン</h10>    
         </div>
-    </div>  
+            
+    </div>
+        <div class="row">
+            <%= form_with model: @customer, url: customer_session_path, local: true  do |f| %>
+                <div class="field">
+                    <%= f.label :email, "メールアドレス"  %><br> 
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div><br>
+
+                    <div class="field">
+                        <%= f.label :password, "パスワード"  %><br>              
+                        <%= f.password_field :password, autocomplete: "current-password" %>
+                    </div><br>
+
+                        <div class="actions">
+                            <%= f.submit "ログイン", class: "btn btn-primary btn-lg center-block" %>
+                        </div>
+            <% end %>            
+        </div>    
+            <h10 style="width: 100px;background-color: #3CB371">
+                登録がお済みでない方
+            </h10>
+                <p>
+                    <%= link_to "こちら", new_customer_registration_path %>から新規登録をしてください。
+                </p>
 </div>
   
 
