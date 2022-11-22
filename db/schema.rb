@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2022_10_10_080047) do
 
   create_table "weights", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "weight_id"
     t.integer "current_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

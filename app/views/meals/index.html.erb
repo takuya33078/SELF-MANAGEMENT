@@ -21,7 +21,7 @@
                         </thead>
                 
                             <tbody>
-                                <% @meals.reverse_each do |meal| %>
+                                <% @meals.each do |meal| %>
                                     <tr>
                                         <td><%= meal.created_at.strftime('%Y/%m/%d') %></td>
                                         <td><%= meal.dish_name %></td>

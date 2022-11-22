@@ -3,16 +3,22 @@ class WeightsController < ApplicationController
   
   def index
     #@weight = Weight.new(weight_params)
-    #@weights = Weight.where(id: params[:id])
-    @weights = Weight.page(params[:page])
-    #logger.debug"---------------------------------------------------------------"
-    #logger.debug(@weights.inspect)
+    logger.debug"-------------------------------------hibihihi--------------------------"
+    logger.debug 
+    @weight = Weight.where(customer_id: nil)
+    @weights = Weight.page(params[:page]).reverse_order
+    #@weight = current_customer.weights
+    logger.debug"------------------------------------fedvdfvdv---------------------"
+    logger.debug(@weight.inspect)
   end
   
   def create
     #logger.debug"---------------------------------------------------------------"
-    #logger.debug@params[:current_weight]       
-    Weight.create(current_weight: @params[:current_weight])
+    #logger.debug@params[:weight][:current_weight]
+    @customer = current_customer
+    logger.debug"---------------------------------------------------------------"
+    logger.debug @customer.inspect
+    Weight.create(current_weight: @params[:weight][:current_weight])
     #@weight = Weight.new(weight_params)
     #logger.debug"---------------------------------------------------------------"
     #logger.debug(@weight.inspect)    
