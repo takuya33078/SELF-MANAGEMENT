@@ -9,6 +9,9 @@
                         <%= f.text_field :current_weight %>kg<br>
                         <%#= f.hidden_field :id, :value => weight.id %>
                         <%= f.submit "変更を保存", class: "btn btn-success mt-3 mx-auto" %>
+                        <%= link_to weight_path, method: :delete, class: " btn btn-danger mt-3 mx-auto" do %>
+                        削除
+                        <% end %>
                     </div>
                 <% end %>
         </div>

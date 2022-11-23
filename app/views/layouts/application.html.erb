@@ -21,6 +21,11 @@
               </div>
                   <div class="navigation">
                       <header>
+                            <% if flash[:success] %>
+                                <div class="alert alert-success" role="alert">
+                                    <p class="notice text-center" style="color:green;"><%= flash[:success] %></p>
+                                </div>
+                            <% end %>
                           <ul class="nav links">
             
                               <% if customer_signed_in? %>
