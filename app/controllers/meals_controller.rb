@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
   def index
     @meals = Meal.all.page(params[:page]).reverse_order
-    @meal = Meal.find_by(customer_id: params[:customer_id])
+    @meal = Meal.where(customer_id: current_customer[:id])
   end
 
   def new
@@ -13,7 +13,7 @@ class MealsController < ApplicationController
      #@meal.customer_id = current_customer.id　
      logger.debug"----------------------------------------------------------------"
      logger.debug(@meal.inspect)
-    if @meal.save!
+    if @meal.save
         redirect_to meals_path
     else
         flash[:meal_created_error] = "食事情報が正常に保存されませんでした。"
