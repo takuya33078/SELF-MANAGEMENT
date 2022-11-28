@@ -4,7 +4,7 @@ class WeightsController < ApplicationController
   def index
     #@weight = Weight.new(weight_params)
     @weight = Weight.where(customer_id: current_customer[:id])
-    @weights = Weight.page(params[:page]).per(5)
+    @weights = Weight.page(params[:page]).reverse_order
     #@weight = current_customer.weights
     logger.debug"------------------------------------@weight---------------------"
     logger.debug(@weight.inspect)
@@ -20,7 +20,6 @@ class WeightsController < ApplicationController
    else
      Weight.create(current_weight: @params[:weight][:current_weight], 
                   customer_id: current_customer[:id])
-    
      if @params[:weight][:current_weight] =~ /^[0-9]+$/ && @params[:weight][:current_weight].to_i - current_customer[:goal_weight].to_i  <= 0
        flash[:success] = "達成おめでとうございます！"
        redirect_to weights_path

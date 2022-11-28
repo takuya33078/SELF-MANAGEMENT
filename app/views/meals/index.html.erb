@@ -15,8 +15,8 @@
                             <tr>
                                 <th>登録日時</th>
                                 <th>料理名</th>
-                                <th>食事写真</th>
-                    
+                                <th>写真を表示</th>
+                                <th>編集</th>
                             </tr>
                         </thead>
                 
@@ -25,7 +25,8 @@
                                     <tr>
                                         <td><%= meal.created_at.strftime('%Y/%m/%d') %></td>
                                         <td><%= meal.dish_name %></td>
-                                        <td><%= attachment_image_tag meal, :image, :fill, 400, 300, format: "jpeg", fallback: "no-image.jpg", size: "200x200" %></td>
+                                        <td><%= link_to "表示", meal_path(meal.id), class: "btn btn-primary" %></td>
+                                        <td><%= link_to "編集", edit_meal_path(meal), class: "btn btn-success" %></td>
                                     </tr>
                                 <% end %>
                             </tbody>

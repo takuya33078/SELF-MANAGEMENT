@@ -1,2 +1,27 @@
-<h1>Meals#edit</h1>
-<p>Find me in app/views/meals/edit.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <h10 style="background-color: #3CB371">
+                登録した食事を編集
+            </h10><br><br>
+                <%= form_with model: @meal, url: meal_path(@meal.id), local: true , method: :patch do |f| %>
+                    <div class="form-group">
+                        <div class="form-group row">
+                            <%= f.label :料理名, class: "col-sm-2" %>
+                            <%= f.text_field :dish_name, class: "form-control col-sm-4" %>
+                        </div>
+                        
+                            <div class="col">
+                                <%= f.label :商品画像, class: "col-sm-2" %>
+                                <%= f.attachment_field :image %>
+                            </div>
+                
+                        <%= f.submit "変更を保存", class: "btn btn-success mt-3 mx-auto" %>
+                        <%= link_to meal_path, method: :delete, class: " btn btn-danger mt-3 mx-auto" do %>
+                        削除
+                        <% end %>
+                    </div>
+                <% end %>
+        </div>
+    </div>
+</div>

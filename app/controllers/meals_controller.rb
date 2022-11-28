@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+  
   def index
     @meals = Meal.all.page(params[:page]).reverse_order
     @meal = Meal.where(customer_id: current_customer[:id])
@@ -21,8 +22,29 @@ class MealsController < ApplicationController
     end
   end
 
+  def show
+    @meal = Meal.find(params[:id])
+  end  
+
+
   def edit
-     @meal = Meal.find(params[:id])
+    @meal = Meal.find(params[:id])
+  end
+
+  def update
+    #logger.debug"---------------------------------------------------------------"
+    #logger.debug @params[:weight][:current_weight] 
+    @meal = Meal.find(params[:id])
+    @meal.update
+    #@weight.update(weight_params)
+    #Weight.update(current_weight: @params[:current_weight], id: )
+    redirect_to weights_path
+  end
+  
+  def destroy
+    @meal = Meal.find(params[:id])
+    @meal.destroy
+    redirect_to meals_path
   end
   
 private
