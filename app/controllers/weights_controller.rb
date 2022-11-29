@@ -6,8 +6,8 @@ class WeightsController < ApplicationController
     @weight = Weight.where(customer_id: current_customer[:id])
     @weights = Weight.page(params[:page]).reverse_order
     #@weight = current_customer.weights
-    logger.debug"------------------------------------@weight---------------------"
-    logger.debug(@weight.inspect)
+    #logger.debug"------------------------------------@weight---------------------"
+    #logger.debug(@weight.inspect)
   end
   
   def create
@@ -46,12 +46,10 @@ class WeightsController < ApplicationController
   end
   
   def update
-    #logger.debug"---------------------------------------------------------------"
-    #logger.debug @params[:weight][:current_weight] 
     @weight = Weight.find(params[:id])
     @weight.update(current_weight: @params[:weight][:current_weight])
-    #@weight.update(weight_params)
-    #Weight.update(current_weight: @params[:current_weight], id: )
+    #logger.debug"------------------------------------@weight---------------------"
+    #logger.debug(@weight.inspect)
     redirect_to weights_path
   end
   
