@@ -1,8 +1,10 @@
 class MealsController < ApplicationController
   before_action :meal_params, only: [:create, :update]
   def index
-    @meals = Meal.all.page(params[:page]).reverse_order
     @meal = Meal.where(customer_id: current_customer[:id])
+    logger.debug"---------------------------------------------debug------------------"
+    logger.debug customer_id: current_customer[:id]
+    @meals = Meal.page(params[:page]).reverse_order
   end
 
   def new
@@ -10,10 +12,11 @@ class MealsController < ApplicationController
   end
   
   def create
-    logger.debug"---------------------------------------------debug------------------"
-    logger.debug params[:image_id]
+    #logger.debug"---------------------------------------------debug------------------"
+    #logger.debug params[:meal][:image_id]
     @meal = Meal.create(dish_name: params[:meal][:dish_name], 
-                  customer_id: current_customer[:id])
+                  customer_id: current_customer[:id],
+                  image_id: params[:meal][:image])
     #@meal.customer_id = current_customer.id
 
     logger.debug"----------------------create------------------------------------------"
@@ -27,7 +30,9 @@ class MealsController < ApplicationController
   end
 
   def show
-    @meal = Meal.find(params[:id])
+    @meal = Meal.find_by(customer_id: current_customer[:id])
+    logger.debug"-----------------show-----------------------------------------------"
+    logger.debug(@meal.inspect)  
   end  
 
 
@@ -42,7 +47,7 @@ class MealsController < ApplicationController
     @meal.update(dish_name: params[:meal][:dish_name])
     #@weight.update(weight_params)
     #Weight.update(current_weight: @params[:current_weight], id: )
-    redirect_to weights_path
+    redirect_to meals_path
   end
   
   def destroy

@@ -6,7 +6,7 @@ class WeightsController < ApplicationController
     @weight = Weight.where(customer_id: current_customer[:id])
     @weights = Weight.page(params[:page]).reverse_order
     #@weight = current_customer.weights
-    #logger.debug"------------------------------------@weight---------------------"
+    logger.debug"------------------------------------@weight---------------------"
     #logger.debug(@weight.inspect)
   end
   
