@@ -14,10 +14,15 @@
                     <%= @meal.dish_name %>
                 </div>
                     <div class="col-lg-9">
-                        <h9>料理写真</h9><br>
-                        <%#= image_tag @meal, :image, format: "jpeg", fallback: "no-image.jpg", size: "550x400" %>
-                        <img src="<%= @meal.image %>" width="1001">
+                        <h9>・</h9>
+                        <%= @meal.comment %>
                     </div>
+                        <div class="col-lg-9 ">
+                            <%= link_to meals_path, class: "btn btn-secondary" do %>
+                                閉じる
+                            <% end %>                            
+                        </div>
+
                     
                 
     </div>

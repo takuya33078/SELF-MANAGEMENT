@@ -3,7 +3,7 @@
       <h10 style="background-color: #3CB371">食事一覧・登録</h10>
     </div>
         <div class="intro">
-            食事の登録を写真付きで登録することできます。
+            食事の情報を登録することできます。
         </div>
             <div class="row text-right">
               <%= link_to "登録", new_meal_path, class: "btn btn-lg btn btn-info text-right ml-auto " %>
@@ -15,17 +15,17 @@
                             <tr>
                                 <th>登録日時</th>
                                 <th>料理名</th>
-                                <th>写真を表示</th>
+                                <th>詳細を表示</th>
                                 <th>編集</th>
                             </tr>
                         </thead>
                 
                             <tbody>
-                                <% @meals.each do |meal| %>
+                                <% @meal.each do |meal| %>
                                     <tr>
                                         <td><%= meal.created_at.strftime('%Y/%m/%d') %></td>
                                         <td><%= meal.dish_name %></td>
-                                        <td><%= link_to "表示", meal_path(meal.id), class: "btn btn-primary" %></td>
+                                        <td><%= link_to "詳細", meal_path(meal.id), class: "btn btn-primary" %></td>
                                         <td><%= link_to "編集", edit_meal_path(meal), class: "btn btn-success" %></td>
                                     </tr>
                                 <% end %>
