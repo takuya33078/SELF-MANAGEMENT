@@ -15,7 +15,7 @@ class WeightsController < ApplicationController
     #logger.debug@params[:weight][:current_weight]
    unless @params[:weight][:current_weight] =~ /^[0-9]+$/
       #logger.debug"---------------------------jsn------------------------------------"
-      flash[:success] = "数値を入力してください。"
+      flash[:success] = "数値を入力してください（半角）。"
       redirect_to weights_path
    else
      Weight.create(current_weight: @params[:weight][:current_weight], 
@@ -27,7 +27,7 @@ class WeightsController < ApplicationController
        #flash[:success] = "数値を入力してください。"
        #render :index
      else
-       flash[:success] = "登録しました。"
+       flash[:success] = "体重を登録しました。"
        redirect_to weights_path 
      end
    end

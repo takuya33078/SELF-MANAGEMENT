@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
   before_action :meal_params, only: [:create, :update]
   def index
-    @meal = Meal.where(id: current_customer[:id])
+    @meal = Meal.where(customer_id: current_customer[:id])
     #logger.debug"---------------------------------------------index------------------"
     #logger.debug id: current_customer[:id]
     @meals = Meal.page(params[:page]).reverse_order
@@ -22,9 +22,9 @@ class MealsController < ApplicationController
     #logger.debug"----------------------create2------------------------------------------"
     #logger.debug(@meal.inspect)
     if @meal.save
+      flash[:success] = "食事情報を登録しました。"
       redirect_to meals_path
     else
-      flash[:meal_created_error] = "食事情報が正常に保存されませんでした。"
       redirect_to new_meal_path
     end
   end
@@ -47,15 +47,25 @@ class MealsController < ApplicationController
     @meal.update(dish_name: params[:meal][:dish_name], 
                  customer_id: current_customer[:id],
                  comment: params[:meal][:comment])
+    if @meal.save
+      flash[:success] = "食事情報を更新しました。"
+      redirect_to meals_path
+    else
+      redirect_to new_meal_path
+    end
     #@weight.update(meal_params)
     #Weight.update(current_weight: @params[:current_weight], id: )
-    redirect_to meals_path
   end
   
   def destroy
     @meal = Meal.find(params[:id])
     @meal.destroy
-    redirect_to meals_path
+    if @meal.destroy
+      flash[:success] = "選択した食事情報を削除しました。"
+      redirect_to meals_path
+    else
+      render new
+    end
   end
   
 private
