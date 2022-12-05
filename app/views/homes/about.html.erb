@@ -9,10 +9,9 @@
                     体重を管理したい方や、食事を管理しないといけない方など、<br>
                     皆様の健康に向けて簡単に記録できる内容ですので是非ご活用ください！<br>
                 </p>
+                    <%= image_tag "about1.jpg", size: '500x500' %> 
         </div>
-            <div class="col-xl-7">
-                <%= image_tag "about1.jpg", size: '500x500' %>    
-            </div>
+
                 <div class="col-xl-5">
                     <h4 style="width: 240px;background-color: #3CB371">
                         作成者自己紹介
@@ -22,6 +21,9 @@
                         <h6>出身：大阪府</h6>
                         <h6>生まれ年：1997年</h6>
         　　　　　　      　　<p>FTから一言：<br>FT自身が、健康管理への意識向けをより一層<br>高めないといけないというところから<br>このアプリを作成しました！皆さんも健康に<br>向けて、一緒に頑張りましょう！</p>
+                        <%= link_to root_path, class: "btn btn-secondary" do %>
+                            トップページへ
+                        <% end %>
                 </div>
     </div>
 </div>
