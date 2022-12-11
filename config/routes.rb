@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   get 'meals/show'
-  devise_for :customers
+  devise_for :customers, controllers: {
+    registrations: 'customers/registrations',
+    passwords: 'customers/passwords'
+  }
   root to: 'homes#top'
   get 'about' => 'homes#about'
   get '/customers/my_page' => 'customers#show'
   get '/customers/unsubcribe' => 'customers#unsubcribe'
   patch '/customers/withdrawal' => 'customers#withdrawal'
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
   resources :customers,only:[:show, :edit, :unsubcribe, :update, :withdraw]
   resources :meals,only:[:index, :new, :create, :show, :edit, :update, :destroy]
   resources :weights,only:[:index, :edit, :create, :update, :destroy]

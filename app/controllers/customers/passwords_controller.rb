@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 class Customers::PasswordsController < Devise::PasswordsController
+    before_action :ensure_normal_customer, only: :create
+
+  def ensure_normal_customer
+    if params[:customer][:email].downcase == 'guest@example.com'
+      flash[:success] = "ゲストユーザーのパスワード再設定はできません。"
+      redirect_to new_customer_session_path
+    end
+  end
+
   # GET /resource/password/new
   # def new
   #   super

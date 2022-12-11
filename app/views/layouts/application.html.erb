@@ -78,6 +78,13 @@
                                                 ログイン
                                             <% end %>
                                         </li>
+                                        
+                                        <li>
+                                            <%= link_to homes_guest_sign_in_path, method: :post, class: "btn btn-outline-success" do %>
+                                                ゲストログイン（閲覧用）
+                                            <% end %>
+                                        </li>                                        
+        
                                     <% end %>
                                 </ul>
                         </header>
