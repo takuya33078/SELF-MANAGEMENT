@@ -48,6 +48,7 @@ class WeightsController < ApplicationController
   def update
     @weight = Weight.find(params[:id])
     @weight.update(current_weight: @params[:weight][:current_weight])
+    flash[:success] = "更新しました。"
     #logger.debug"------------------------------------@weight---------------------"
     #logger.debug(@weight.inspect)
     redirect_to weights_path
@@ -56,6 +57,7 @@ class WeightsController < ApplicationController
   def destroy
     @weight = Weight.find(params[:id])
     @weight.destroy
+    flash[:success] = "削除しました。"
     redirect_to weights_path
   end
   

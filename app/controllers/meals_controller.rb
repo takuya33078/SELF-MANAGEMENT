@@ -61,7 +61,7 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
     @meal.destroy
     if @meal.destroy
-      flash[:success] = "選択した食事情報を削除しました。"
+      flash[:success] = "食事情報を削除しました。"
       redirect_to meals_path
     else
       render new

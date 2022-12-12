@@ -7,8 +7,8 @@ class Customers::RegistrationsController < Devise::RegistrationsController
 
   def ensure_normal_customer
     if resource.email == 'guest@example.com'
-      flash[:success] = "ゲストユーザーの更新・削除はできません。"
       redirect_to root_path
+      flash[:success] = "ゲストユーザーの更新・削除はできません。"
     end
   end
   # GET /resource/sign_up

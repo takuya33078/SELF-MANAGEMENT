@@ -5,8 +5,10 @@ class Customers::PasswordsController < Devise::PasswordsController
 
   def ensure_normal_customer
     if params[:customer][:email].downcase == 'guest@example.com'
-      flash[:success] = "ゲストユーザーのパスワード再設定はできません。"
+    logger.debug"----------------------------------------------------------------"
+    logger.debug params[:customer][:email]
       redirect_to new_customer_session_path
+      flash[:success] = "ゲストユーザーのパスワード再設定はできません。"
     end
   end
 

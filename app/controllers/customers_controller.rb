@@ -24,6 +24,7 @@ end
 def withdrawal
    @customer = current_customer
    if @customer.update!(is_deleted: true)
+      flash[:success] = "退会しました。"
       sign_out current_customer
    end
    redirect_to root_path
