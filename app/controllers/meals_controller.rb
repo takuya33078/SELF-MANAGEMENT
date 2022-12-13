@@ -43,7 +43,6 @@ class MealsController < ApplicationController
   def update
     #logger.debug"-----------------update-----------------------------------------------"
     #logger.debug(@meal.inspect)
-    @meal = Meal.find(params[:id])
     @meal.update(dish_name: params[:meal][:dish_name], 
                  customer_id: current_customer[:id],
                  comment: params[:meal][:comment])

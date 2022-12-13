@@ -1,37 +1,53 @@
 class CustomersController < ApplicationController
 def show
- @customer = current_customer
+ #logger.debug"-----------------show-----------------------------------------------"
+ #logger.debug current_customer[:id]  
+ @customer = Customer.find_by(id: current_customer.id)
+ #logger.debug"---------------------------------------------------------------"
+ #logger.debug @customer.inspect
 end
 
 def edit
- @customer = current_customer
+ @customer = Customer.find_by(id: current_customer.id)
 end
 
 def update
-  @customer = current_customer
-  if @customer.update!(customer_params)
-  flash[:success] = "登録情報を変更しました。"
-  redirect_to customers_my_page_path
+  @customer = Customer.find_by(id: current_customer.id)
+ #logger.debug"---------------------------------------------------------------"
+ #logger.debug customer_params
+  if @customer.email == 'guest@example.com' 
+    flash[:success] = "ゲストユーザーの情報変更はできません。"
+    redirect_to edit_customer_path
   else
-  render 'edit'
+    @customer.update(name: params[:name],
+                     email: params[:email],
+                     goal_weight: params[:goal_weight])
+    @customer.save
+    flash[:success] = "登録情報を変更しました。"
+    redirect_to customers_my_page_path
   end
+ logger.debug"---------------------------------------------------------------"
+ logger.debug  customer_params
 end
+
 
 def unsubcribe
   @customer = current_customer
 end
 
-def withdrawal
+def withdraw
    @customer = current_customer
-   if @customer.update!(is_deleted: true)
+   if @customer.email == 'guest@example.com' 
+     flash[:success] = "ゲストユーザーの削除はできません。"
+     redirect_to customers_my_page_path
+   else 
       flash[:success] = "退会しました。"
       sign_out current_customer
    end
-   redirect_to root_path
 end
-
+  
 private
  def customer_params
- params.permit(:name, :email, :goal_weight)
+ params.require(:customer).permit(:name, :email, :goal_weight)
  end
 end
