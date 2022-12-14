@@ -19,9 +19,9 @@ def update
     flash[:success] = "ゲストユーザーの情報変更はできません。"
     redirect_to edit_customer_path
   else
-    @customer.update(name: params[:name],
-                     email: params[:email],
-                     goal_weight: params[:goal_weight])
+    @customer.update(name: params[:customer][:name],
+                     email: params[:customer][:email],
+                     goal_weight: params[:customer][:goal_weight])
     @customer.save
     flash[:success] = "登録情報を変更しました。"
     redirect_to customers_my_page_path

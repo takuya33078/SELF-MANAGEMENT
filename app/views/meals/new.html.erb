@@ -11,18 +11,23 @@
 
             <%= form_with model: @meal, url: meals_path do |f| %>
                 <div class="col">
-                    <div class="form-group row">
-                        <%= f.label :料理名, class: "col-sm-2" %>
-                        <%= f.text_field :dish_name, class: "form-control col-sm-3" %>
+                    <div class="col">
+                        <h10>料理名</h10>    
                     </div>
-                    
                         <div class="col">
-                            <%= f.label :メモ, class: "col-sm-1" %>
-                            <%= f.text_area :comment, size: "35x7" %>
+                            <%#= f.label :料理名, class: "col-sm-2" %>
+                            <%= f.text_field :dish_name, class: "form-control col-sm-3" %>
                         </div>
+                            <div class="col">
+                                <h10>メモ</h10>    
+                            </div>
+                                <div class="col">
+                                    <%#= f.label :メモ, class: "col-sm-1", style: "padding-bottom 60px" %>
+                                    <%= f.text_area :comment, size: "35x7" %>
+                                </div>
                 
-                            <div class="col-sm-2 mt-auto ml-5">
-                                <%= f.submit :新規登録, class: "btn btn-info" %>
+                            <div class="col-sm-2 mt-auto">
+                                <%= f.submit :新規登録, class: "btn btn-info btn-lg", style: "margin-top 10px" %>
                             </div>
             
                 </div>

@@ -11,7 +11,9 @@ class Customer < ApplicationRecord
       customer.goal_weight = 50
     end
   end
-         
+  validates :name,  presence: true
+  validates :email, presence: true
+  validates :goal_weight,  presence: true
   has_many :meals, dependent: :destroy
   has_many :weights, dependent: :destroy
 end
